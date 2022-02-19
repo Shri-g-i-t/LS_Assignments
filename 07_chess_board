@@ -1,0 +1,22 @@
+<< Documentation
+Name	      : Shridhar Pujar 
+Date 	      : 16/02/2022
+Description   : script to print chess board
+Sample input  :
+Sample output :
+Documentation
+#!/bin/bash
+
+for i in `seq 8`; do     #Loop for rows
+    for j in `seq 8`; do  #Loop for columns
+	if [ $((($i + $j) % 2)) -eq 0 ]; then  #check if i+j is even 
+	    #echo -n "1"
+	    echo -n -e "\e[40m" " "    #To print a black box
+	else
+	   # echo -n "0"
+	   echo -n -e "\e[47m" " "    #To print a white box
+	fi
+    done
+    echo -ne "\e[0m" " " #To make it normal
+    echo 
+done
